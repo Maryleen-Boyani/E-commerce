@@ -1,21 +1,29 @@
-import PropTypes from "prop-types"
+import propTypes from 'prop-types';
 
 export const Product = (props)=>{
-    const {id, productName, price, productImage} = props;
+    const {id, productName, price, productImage}=props.data;
     return (
-        <div className="product">
-            <img src={productImage}/>
+        <>
+           <div className="product">
+                <img src={productImage} />
                 <div className="description">
-                    <p><b>{productName}</b></p>
+                    <p>
+                        <b>{productName}</b>
+                    </p>
                     <p>${price}</p>
-                    <p>{id}</p>
                 </div>
-        </div>
+           </div>
+        </>
+        
     )
-}
+    
+};
+
 Product.propTypes = {
-    id: PropTypes.number.isRequired,
-    productName: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    productImage: PropTypes.string.isRequired,
+    data: propTypes.shape({
+        id: propTypes.string.isRequired,
+        productName: propTypes.string.isRequired,
+        price: propTypes.number.isRequired,
+        productImage: propTypes.string.isRequired,
+    }).isRequired,
 }

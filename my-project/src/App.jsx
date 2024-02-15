@@ -6,12 +6,17 @@ import {Shop} from "./pages/shop/shop"
 
 export default function App() {
   return (
-    <Router>
+    <>
+      <Router>
       <Navbar />
+      <br />
       <Routes>
         <Route path="/" element={<Shop />}/>
         <Route path="/cart" element={<Cart />}/>
       </Routes>
     </Router>
+    
+    </>
+    
   );
 }
