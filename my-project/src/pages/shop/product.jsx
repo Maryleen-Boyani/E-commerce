@@ -1,7 +1,10 @@
 import propTypes from 'prop-types';
-
+import { ShopContext } from '../../context/shop-context';
+import { useContext } from 'react';
 export const Product = (props)=>{
     const {id, productName, price, productImage}=props.data;
+    const {addToCart} = useContext(ShopContext);
+
     return (
         <>
            <div className="product">
@@ -11,6 +14,9 @@ export const Product = (props)=>{
                         <b>{productName}</b>
                     </p>
                     <p>${price}</p>
+                    <button className="addToCartBttn" onClick={()=> addToCart(id)}>
+                        Add To Cart
+                    </button>
                 </div>
            </div>
         </>
